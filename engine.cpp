@@ -1,0 +1,63 @@
+#include "libtcod.hpp"
+#include "actor.h"
+#include "map.h"
+#include "engine.h"
+#include <memory>
+
+
+// When a Engine Class is created, we init our TCOD Console
+// Currently we use this to also define two actors, one player, one temp npc.
+Engine::Engine()
+{
+    TCODConsole::initRoot(80, 50, "ChildOfOdin - RL", false);
+    player = new Actor(40, 25, '@', TCODColor::white);
+    actors.push(player);
+    actors.push(new Actor(60, 13, '@', TCODColor::yellow));
+    map = new Map(80, 50);
+}
+
+
+Engine::~Engine()
+{
+    actors.clearAndDelete();
+    delete map;
+}
+
+void Engine::update() {
+    TCOD_key_t key;
+    TCODSystem::checkForEvent(TCOD_EVENT_KEY_PRESS, &key, NULL);
+    switch (key.vk) {
+    case TCODK_UP:
+        if (!map->isWall(player->x, player->y - 1)) {
+            player->y--;
+        }
+        break;
+    case TCODK_DOWN:
+        if (!map->isWall(player->x, player->y + 1)) {
+            player->y++;
+        }
+        break;
+    case TCODK_LEFT:
+        if (!map->isWall(player->x - 1, player->y)) {
+            player->x--;
+        }
+        break;
+    case TCODK_RIGHT:
+        if (!map->isWall(player->x + 1, player->y)) {
+            player->x++;
+        }
+        break;
+    default:break;
+    }
+}
+
+void Engine::render() {
+    TCODConsole::root->clear();
+    // draw the map
+    map->render();
+    // draw the actors
+    for (Actor **iterator = actors.begin();
+        iterator != actors.end(); iterator++) {
+        (*iterator)->render();
+    }
+}

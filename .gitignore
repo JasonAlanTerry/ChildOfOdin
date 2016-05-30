@@ -1,0 +1,26 @@
+# VS Studio Files To Exclude.
+*.projdata
+*.pdb
+*.positions
+*proj.user
+*proj.*.user
+*.csproj.webinfo
+*.vbproh.webinfo
+*.vcxproj
+*.vcxproj.*
+*.ncb
+*.suo
+*.plg
+*.opt
+*.ilk
+*.pch
+*.idb
+*.clw
+*.aps
+
+# Other Exculded files.
+*.dll
+
+# DIR to ignore.
+Debug/*
+Release/*

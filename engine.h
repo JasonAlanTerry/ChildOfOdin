@@ -9,7 +9,9 @@
 *   - Render the new ROOT console.
 */
 
-
+#include "libtcod.hpp"
+#include "actor.h"
+#include "map.h"
 
 class Engine {
 public:

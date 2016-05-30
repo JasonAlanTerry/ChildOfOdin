@@ -1,4 +1,3 @@
-#include "libtcod.hpp"
 #include "actor.h"
 
 

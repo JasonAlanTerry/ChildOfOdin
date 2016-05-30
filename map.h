@@ -1,4 +1,6 @@
 #pragma once
+#include "libtcod.hpp"
+#include "map.h"
 
 struct Tile {
     bool canWalk; // Can we walk on this tile?
@@ -20,7 +22,7 @@ public:
 protected:
     Tile *tiles;
     
-    friend class BspListener;
+    friend class MapGen;
 
     void dig(int x1, int y1, int x2, int y2);
     void makeRoom(bool first, int x1, int y1, int x2, int y2);

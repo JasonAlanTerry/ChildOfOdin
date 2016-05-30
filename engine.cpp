@@ -1,6 +1,3 @@
-#include "libtcod.hpp"
-#include "actor.h"
-#include "map.h"
 #include "engine.h"
 
 

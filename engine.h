@@ -11,19 +11,10 @@
 
 
 
-class Engine
-{
+class Engine {
 public:
-    // A TCODList containing a group of pointers to Actor objects, this list is named actors
-    // I assume I would do this to not have to clone the actors when working with them or comparing them throughout the game.
-    // Using this list, I can derefrence the actor I need and work with it indirectly rather than make a copy of it, work with it, then pass it back?
-    // I am around 20% certain that is how this works.
     TCODList<Actor *> actors;
-    
-    // We also create a single pointer to a actor object named player.
     Actor *player;
-
-    // Also, a pointer to a map object named map.
     Map *map;
 
     Engine();
@@ -33,7 +24,6 @@ public:
     void update();
     void render();
 };
-
 
 // 
 extern Engine engine;

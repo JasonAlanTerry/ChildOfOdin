@@ -6,14 +6,11 @@
 
 // When a Engine Class is created, we init our TCOD Console
 // Currently we use this to also define two actors, one player, one temp npc.
-Engine::Engine()
-{
+Engine::Engine() {
     TCODConsole::initRoot(80, 50, "libtcod C++ tutorial", false);
     player = new Actor(40, 25, '@', TCODColor::white);
     actors.push(player);
-    actors.push(new Actor(60, 13, '@', TCODColor::yellow));
     map = new Map(80, 45);
-
 }
 
 

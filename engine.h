@@ -18,7 +18,7 @@ public:
     // I assume I would do this to not have to clone the actors when working with them or comparing them throughout the game.
     // Using this list, I can derefrence the actor I need and work with it indirectly rather than make a copy of it, work with it, then pass it back?
     // I am around 20% certain that is how this works.
-    TCODList<std::unique_ptr<Actor>> actors;
+    TCODList<Actor *> actors;
     
     // We also create a single pointer to a actor object named player.
     Actor *player;
